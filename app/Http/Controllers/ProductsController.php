@@ -12,7 +12,7 @@ class ProductsController extends Controller
     {
         return view('products.index', ['products' => Product::all()]);
     }
-
+    
     public function create()
     {
         return view('products.create', [
