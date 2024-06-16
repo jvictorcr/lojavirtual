@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <img src="{{ asset('images/zion_home.ico') }}" alt="Logo" class="block h-9 w-auto">
                     </a>
                 </div>
 
@@ -18,7 +18,9 @@
                     <x-nav-link :href="route('products')" :active="request()->routeIs('products')">
                         {{ __('Produtos') }}
                     </x-nav-link>
-                    
+                    <x-nav-link :href="route('type')" :active="request()->routeIs('type')">
+                    {{ __('Tipos') }}
+                    </x-nav-link>
                 </div>
             </div>
 
