@@ -12,7 +12,12 @@ class ProductsController extends Controller
     {
         return view('products.index', ['products' => Product::all()]);
     }
-    
+    public function getProducts()
+    {
+        return view('welcome', ['products' => Product::select('name', 'price', 'description')->where('destaque', 1)->get()]);
+    }
+
+
     public function create()
     {
         return view('products.create', [
@@ -63,7 +68,7 @@ class ProductsController extends Controller
             'quantity' => 'required|numeric',
             'destaque' => 'required|boolean', // Verifique se a validação está definida para booleano
         ]);
-        
+
 
         $product->update([
             'name' => $request->name,

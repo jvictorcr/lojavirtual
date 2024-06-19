@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
+Route::get('/', [ProductsController::class, 'getProducts']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -31,7 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/type/update/{id}', [TypesController::class, 'edit']);
     Route::post('/type/update', [TypesController::class, 'update']);
     Route::get('/type/delete/{id}', [TypesController::class, 'destroy']);
-    
+
 });
 
 require __DIR__ . '/auth.php';

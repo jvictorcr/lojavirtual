@@ -96,83 +96,32 @@
                     </div>
                     <div
                         class="mt-10 grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                        <!-- Example Product -->
-                        <div class="group relative">
-                            <div
-                                class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                                <img src="{{ asset('images/teclado.png') }}" alt="Product Sample"
-                                    class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                            </div>
-                            <div class="mt-4 flex justify-between">
-                                <div>
-                                    <h3 class="text-sm text-gray-700 dark:text-gray-200">
-                                        <a href="#">
-                                            <span aria-hidden="true" class="absolute inset-0"></span>
-                                            Nome do Produto
-                                        </a>
-                                    </h3>
-                                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Descrição breve</p>
+
+                        @foreach ($products as $product)
+                            <!-- Example Product -->
+                            <div class="group relative">
+                                <div
+                                    class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                                    <img src="{{ asset('images/produto.png') }}" alt="{{ $product->name }}"
+                                        class="w-full h-full object-center object-cover lg:w-full lg:h-full">
                                 </div>
-                                <p class="text-sm font-medium text-gray-900 dark:text-white">$XX.XX</p>
-                            </div>
-                        </div>
-                        <div class="group relative">
-                            <div
-                                class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                                <img src="{{ asset('images/mouse.jpg') }}" alt="Product Sample"
-                                    class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                            </div>
-                            <div class="mt-4 flex justify-between">
-                                <div>
-                                    <h3 class="text-sm text-gray-700 dark:text-gray-200">
-                                        <a href="#">
-                                            <span aria-hidden="true" class="absolute inset-0"></span>
-                                            Nome do Produto
-                                        </a>
-                                    </h3>
-                                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Descrição breve</p>
+                                <div class="mt-4 flex justify-between">
+                                    <div>
+                                        <h3 class="text-sm text-gray-700 dark:text-gray-200">
+                                            <a href="#">
+                                                <span aria-hidden="true" class="absolute inset-0"></span>
+                                                {{ $product->name }}
+                                            </a>
+                                        </h3>
+                                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{ $product->description }}
+                                        </p>
+                                    </div>
+                                    <p class="text-sm font-medium text-gray-900 dark:text-white">
+                                        ${{ number_format($product->price, 2) }}</p>
                                 </div>
-                                <p class="text-sm font-medium text-gray-900 dark:text-white">$XX.XX</p>
                             </div>
-                        </div>
-                        <div class="group relative">
-                            <div
-                                class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                                <img src="{{ asset('images/headset.jpeg') }}" alt="Product Sample"
-                                    class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                            </div>
-                            <div class="mt-4 flex justify-between">
-                                <div>
-                                    <h3 class="text-sm text-gray-700 dark:text-gray-200">
-                                        <a href="#">
-                                            <span aria-hidden="true" class="absolute inset-0"></span>
-                                            Nome do Produto
-                                        </a>
-                                    </h3>
-                                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Descrição breve</p>
-                                </div>
-                                <p class="text-sm font-medium text-gray-900 dark:text-white">$XX.XX</p>
-                            </div>
-                        </div>
-                        <div class="group relative">
-                            <div
-                                class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                                <img src="{{ asset('images/gabinete.jpg') }}" alt="Product Sample"
-                                    class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                            </div>
-                            <div class="mt-4 flex justify-between">
-                                <div>
-                                    <h3 class="text-sm text-gray-700 dark:text-gray-200">
-                                        <a href="#">
-                                            <span aria-hidden="true" class="absolute inset-0"></span>
-                                            Nome do Produto
-                                        </a>
-                                    </h3>
-                                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Descrição breve</p>
-                                </div>
-                                <p class="text-sm font-medium text-gray-900 dark:text-white">$XX.XX</p>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
                 </div>
             </section>
